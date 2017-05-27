@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Games Listing</title>
+    <script src="Scripts/jquery-3.1.1.js"></script>
+</head>
+<body>
+    <div id="results">Games will appear here when received via AJAX</div>
+    <script>
+        var uri = 'api/Games';
+        
+        $(document).ready(function () {
+
+            $.getJSON(uri)
+                .done(function (data) {
+
+                    var html = "";
+
+                    $.each(data, function (key, item) {
+                        html += item.Name + " ";
+                    });
+
+                    $('#results').html(html);
+                });
+        });
+
+        
+
+    </script>
+</body>
+</html>
